@@ -1,0 +1,33 @@
+
+@layer reset, tokens, base, layout, components, utilities, overrides;
+
+@layer reset {
+  *, *::before, *::after {
+    box-sizing: border-box; /* width/height now include padding + border */
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, p, figure, blockquote, dl, dd {
+    margin: 0;
+  }
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  img, picture, svg {
+    display: block;
+    max-width: 100%;
+  }
+  button, input, select, textarea {
+    font: inherit;      /* form controls don't inherit font by default — fix that */
+    color: inherit;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,180 @@
+/* ==========================================================================
+   components.css
+   Owns: every reusable component and its states. Every color/spacing value
+   here is a var(--token) reference — no raw hex, no raw px for color-role
+   or spacing decisions. Variant naming convention: BEM-style modifiers,
+   e.g. .button--secondary, plus [data-state="..."] for runtime state that
+   isn't a simple pseudo-class. Documented in README.md.
+   ========================================================================== */
+
+@layer components {
+
+  /* ---------- Brand mark ---------- */
+  .site-brand {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  /* ---------- Button ---------- */
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    background: var(--action);
+    color: var(--action-text);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background: var(--action-hover);
+  }
+
+  .button:active {
+    transform: translateY(1px);
+  }
+
+  .button:disabled {
+    background: var(--border-default);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+  }
+
+  .button--secondary {
+    background: transparent;
+    border-color: var(--action);
+    color: var(--action);
+  }
+
+  .button--secondary:hover {
+    background: var(--surface-card);
+  }
+
+  .card {
+    background: var(--surface-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .card:hover {
+    border-color: var(--action);
+  }
+
+  .card__meta {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .badge {
+    display: inline-flex;
+    width: fit-content;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .badge[data-status="open"] {
+    background: var(--success-bg);
+    color: var(--success);
+  }
+
+  .badge[data-status="limited"] {
+    background: var(--warning-bg);
+    color: var(--warning);
+  }
+
+  .badge[data-status="full"] {
+    background: var(--error-bg);
+    color: var(--error);
+  }
+
+  /* ---------- Form field ---------- */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+  }
+
+  .field label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .field input,
+  .field select {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    background: var(--surface-page);
+    color: var(--text-primary);
+  }
+
+  .field input:hover,
+  .field select:hover {
+    border-color: var(--action);
+  }
+
+  .field__hint {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  /* Error state: set with [data-state="error"] on the .field wrapper,
+     so both the border and an explicit message change — not color alone. */
+  .field[data-state="error"] input {
+    border-color: var(--error);
+  }
+
+  .field[data-state="error"] .field__hint {
+    color: var(--error);
+  }
+
+  .field[data-state="success"] input {
+    border-color: var(--success);
+  }
+
+  .field[data-state="success"] .field__hint {
+    color: var(--success);
+  }
+
+  /* ---------- Disclosure (native <details>/<summary>) ---------- */
+  .faq-item {
+    background: var(--surface-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .faq-item[open] summary {
+    color: var(--action);
+    margin-bottom: var(--space-2);
+  }
+
+  .faq-item p {
+    margin-top: var(--space-2);
+  }
+}

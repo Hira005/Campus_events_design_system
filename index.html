@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FCIT Developers Club — Events</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="design-system/components.css">
+  <link rel="stylesheet" href="styles/page.css">
+</head>
+<body>
+
+  <header class="site-header page-shell">
+    <span class="site-brand">FCIT Developers Club</span>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="nav-link" href="#events">Events</a>
+      <a class="nav-link" href="#register">Register</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+    <button id="theme-toggle" class="button button--secondary" type="button">Switch to dark</button>
+  </header>
+
+  <main class="page-shell">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Build. Compete. Connect.</h1>
+      <p>Talks, competitions, and industry visits from FCIT's developer
+        community. Reserve a spot below in under a minute.</p>
+      <a class="button" href="#events">See upcoming events</a>
+    </section>
+
+    <section id="events" aria-labelledby="events-title">
+      <h2 id="events-title" class="section-heading">This week</h2>
+      <div class="card-list">
+
+        <article class="card">
+          <span class="badge" data-status="open">Open</span>
+          <h3>From FCIT to Tesla</h3>
+          <p class="card__meta">Friday · 1:30 PM · PUCIT Old Campus</p>
+          <p>A talk with Hamza Rashid, QA Engineer at Tesla, on bridging
+            academia and industry — career tips, challenges, and a live Q&amp;A.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge" data-status="limited">Few seats left</span>
+          <h3>Agentic AI Pitch Competition</h3>
+          <p class="card__meta">Saturday · 11:59 PM deadline · Online submission</p>
+          <p>PUCIT-FCIT's first research-driven AI innovation challenge — pitch
+            bold ideas for autonomous, agentic systems.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge" data-status="open">Registration required</span>
+          <h3>Folio3 x PUCIT Industrial Tour</h3>
+          <p class="card__meta">Monday · 10:30 AM – 2:30 PM · Gulberg III, Lahore</p>
+          <p>An on-site visit to Folio3, in collaboration with the Industry
+            Liaison Committee — real exposure to a working dev environment.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="register" aria-labelledby="register-title">
+      <h2 id="register-title" class="section-heading">Reserve your spot</h2>
+      <form novalidate>
+
+        <div class="field">
+          <label for="full-name">Full name</label>
+          <input id="full-name" name="full-name" type="text" required>
+        </div>
+
+        <div class="field" data-state="success">
+          <label for="email">University email</label>
+          <input id="email" name="email" type="email" required>
+          <span class="field__hint">Looks good — we'll send your confirmation here.</span>
+        </div>
+
+        <div class="field" data-state="error">
+          <label for="event-choice">Which event?</label>
+          <select id="event-choice" name="event-choice" required>
+            <option value="">Choose an event</option>
+            <option value="tesla-talk">From FCIT to Tesla</option>
+            <option value="ai-pitch">Agentic AI Pitch Competition</option>
+            <option value="folio3-tour">Folio3 x PUCIT Industrial Tour</option>
+          </select>
+          <span class="field__hint">Please choose an event before submitting.</span>
+        </div>
+
+        <button class="button" type="submit">Reserve my spot</button>
+      </form>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-heading">Questions</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>Do I need to know how to code to join?</summary>
+          <p>No — talks and tours are open to all FCIT students. Competitions
+            are open to beginners and experienced developers alike.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is there a fee to attend?</summary>
+          <p>No, all FCIT Developers Club events are free for FCIT students.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens if an event fills up?</summary>
+          <p>You'll be added to a waitlist and notified by email if a spot
+            opens.</p>
+        </details>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer page-shell">
+    <p>FCIT Developers Club — events board. Built for DI-322.</p>
+  </footer>
+
+  <script src="styles/theme.js"></script>
+</body>
+</html>

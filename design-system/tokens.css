@@ -1,0 +1,114 @@
+/* ==========================================================================
+   tokens.css
+   Owns: every named design decision. Components must reference these
+   variables (var(--role-name)) and never a raw hex value or px number.
+   Three levels, per the Design Systems reading:
+     1. Primitives — raw palette values, no meaning attached.
+     2. Semantic   — named roles ("what this is used FOR"), consumed by CSS.
+     3. Component  — a narrow override for one component, when needed.
+   ========================================================================== */
+
+@layer tokens {
+  :root {
+    color-scheme: light dark; /* tells the browser both schemes are supported */
+    --clr-cork-050:  #faf6ee;
+    --clr-cork-100:  #f1ead9;
+    --clr-cork-800:  #2c2620;
+    --clr-cork-900:  #201b16;
+
+    --clr-ink-050:   #f5f1e8;
+    --clr-ink-800:   #292521;
+    --clr-ink-900:   #1c1915;
+
+    --clr-green-500: #3c6e47;
+    --clr-green-300: #7fae86;
+    --clr-green-800: #1f3d26;
+
+    --clr-gold-400:  #d9a441;
+    --clr-gold-600:  #a9761f;
+
+    --clr-red-500:   #b3392c;
+    --clr-red-300:   #e8a89f;
+
+    --clr-focus:     #ffbf1f; /* one fixed, high-contrast focus color in both themes */
+
+    /* ---------- Spacing (a small numeric scale, not arbitrary px) ---------- */
+    --space-1: .25rem;
+    --space-2: .5rem;
+    --space-3: .75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+
+    /* ---------- Radius ---------- */
+    --radius-sm: .375rem;
+    --radius-md: .75rem;
+    --radius-pill: 999px;
+
+    /* ---------- Type scale ---------- */
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --text-sm: .875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 2.5rem;
+
+    /* ---------- 2. SEMANTIC ROLES (light theme = default) ---------- */
+    --surface-page: var(--clr-cork-050);
+    --surface-card: var(--clr-cork-100);
+    --text-primary: var(--clr-ink-900);
+    --text-secondary: #5b5347;
+    --border-default: #ddd2ba;
+    --action: var(--clr-green-500);
+    --action-hover: var(--clr-green-800);
+    --action-text: #ffffff;
+    --focus-ring: var(--clr-focus);
+    --success: var(--clr-green-500);
+    --success-bg: #e7f0e8;
+    --warning: var(--clr-gold-600);
+    --warning-bg: #fbf0dc;
+    --error: var(--clr-red-500);
+    --error-bg: #fbe9e6;
+  }
+
+  /* ---------- Dark theme: same roles, new values ---------- */
+  [data-theme="dark"] {
+    --surface-page: var(--clr-cork-900);
+    --surface-card: var(--clr-cork-800);
+    --text-primary: var(--clr-ink-050);
+    --text-secondary: #c9c0b1;
+    --border-default: #443c32;
+    --action: var(--clr-green-300);
+    --action-hover: #9fc7a4;
+    --action-text: var(--clr-ink-900);
+    --focus-ring: var(--clr-focus);
+    --success: var(--clr-green-300);
+    --success-bg: #23361f;
+    --warning: var(--clr-gold-400);
+    --warning-bg: #3a2e15;
+    --error: var(--clr-red-300);
+    --error-bg: #3a1f1a;
+  }
+
+  /* Respect OS preference only when the user hasn't picked a theme explicitly */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      --surface-page: var(--clr-cork-900);
+      --surface-card: var(--clr-cork-800);
+      --text-primary: var(--clr-ink-050);
+      --text-secondary: #c9c0b1;
+      --border-default: #443c32;
+      --action: var(--clr-green-300);
+      --action-hover: #9fc7a4;
+      --action-text: var(--clr-ink-900);
+      --success: var(--clr-green-300);
+      --success-bg: #23361f;
+      --warning: var(--clr-gold-400);
+      --warning-bg: #3a2e15;
+      --error: var(--clr-red-300);
+      --error-bg: #3a1f1a;
+    }
+  }
+}

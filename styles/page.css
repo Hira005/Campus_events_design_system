@@ -1,0 +1,24 @@
+/* ==========================================================================
+   page.css
+   Owns: the utilities + overrides layers — one-off adjustments specific to
+   THIS page, that don't belong in a reusable component or layout rule.
+   Kept deliberately small. If this file grows large, that's a sign
+   something here should move into components.css instead.
+   ========================================================================== */
+
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@layer overrides {
+  .hero .button {
+    margin-top: var(--space-4);
+  }
+}

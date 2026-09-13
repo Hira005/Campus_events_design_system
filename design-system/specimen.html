@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Design System — Specimen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="../styles/page.css">
+
+  <style>
+    /* Specimen-only presentation — not part of the reusable design system,
+       so it deliberately lives here rather than in components.css. */
+    .swatch-grid { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-8); }
+    .swatch { width: 9rem; }
+    .swatch-color { height: 4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-default); }
+    .swatch code { font-size: var(--text-sm); color: var(--text-secondary); }
+    .scale-row { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-2); }
+    .scale-box { background: var(--action); }
+    .state-row { display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center; margin-bottom: var(--space-6); }
+    .usage-note { font-size: var(--text-sm); color: var(--text-secondary); margin-top: var(--space-2); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header page-shell">
+    <span class="site-brand">Design System — Specimen</span>
+    <button id="theme-toggle" class="button button--secondary" type="button">Switch to dark</button>
+  </header>
+
+  <main class="page-shell">
+
+    <section aria-labelledby="color-title">
+      <h2 id="color-title" class="section-heading">1. Color tokens &amp; roles</h2>
+      <p>These are the semantic roles every component consumes. Toggle the theme
+        button above — the swatches below update because components read the
+        role name, not a fixed value.</p>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-color" style="background:var(--surface-page)"></div><code>--surface-page</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--surface-card)"></div><code>--surface-card</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--action)"></div><code>--action</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--focus-ring)"></div><code>--focus-ring</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--success)"></div><code>--success</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--warning)"></div><code>--warning</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--error)"></div><code>--error</code></div>
+        <div class="swatch"><div class="swatch-color" style="background:var(--border-default)"></div><code>--border-default</code></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="spacing-title">
+      <h2 id="spacing-title" class="section-heading">2. Spacing &amp; radius tokens</h2>
+      <div class="scale-row"><div class="scale-box" style="width:var(--space-1);height:1rem"></div><code>--space-1 (.25rem)</code></div>
+      <div class="scale-row"><div class="scale-box" style="width:var(--space-2);height:1rem"></div><code>--space-2 (.5rem)</code></div>
+      <div class="scale-row"><div class="scale-box" style="width:var(--space-4);height:1rem"></div><code>--space-4 (1rem)</code></div>
+      <div class="scale-row"><div class="scale-box" style="width:var(--space-8);height:1rem"></div><code>--space-8 (2rem)</code></div>
+      <div class="scale-row"><div class="scale-box" style="width:3rem;height:1.5rem;border-radius:var(--radius-sm)"></div><code>--radius-sm</code></div>
+      <div class="scale-row"><div class="scale-box" style="width:3rem;height:1.5rem;border-radius:var(--radius-md)"></div><code>--radius-md</code></div>
+      <p class="usage-note">Spacing uses a fixed scale rather than arbitrary pixel values, so any two
+        components stay visually consistent by construction.</p>
+    </section>
+
+    <section aria-labelledby="type-title">
+      <h2 id="type-title" class="section-heading">3. Typography</h2>
+      <h1>Heading 1 — page title</h1>
+      <h2>Heading 2 — section title</h2>
+      <h3>Heading 3 — component title</h3>
+      <p>Body text uses the humanist sans role for long-form reading, capped at a
+        readable line length.</p>
+      <p class="usage-note">Only one &lt;h1&gt; per page. Heading level follows document
+        outline, never visual size — size is controlled separately in CSS.</p>
+    </section>
+
+    <section aria-labelledby="button-title">
+      <h2 id="button-title" class="section-heading">4. Component: Button</h2>
+      <div class="state-row">
+        <button class="button" type="button">Default</button>
+        <button class="button" type="button" style="background:var(--action-hover)">Hover (simulated)</button>
+        <button class="button" type="button" disabled>Disabled</button>
+        <button class="button button--secondary" type="button">Secondary variant</button>
+      </div>
+      <p class="usage-note"><strong>Usage:</strong> primary action per section (one .button per
+        form/section). Use .button--secondary for a lower-emphasis action next to
+        a primary one. Consumes --action, --action-hover, --action-text tokens.
+        Real hover/focus-visible/active states are demonstrated by interacting
+        with the default button directly.</p>
+    </section>
+
+    <section aria-labelledby="card-title">
+      <h2 id="card-title" class="section-heading">5. Component: Card</h2>
+      <div class="card-list">
+        <article class="card">
+          <span class="badge" data-status="open">Open</span>
+          <h3>Sample event</h3>
+          <p class="card__meta">Friday · 1:30 PM · PUCIT Old Campus</p>
+          <p>Hover this card to see its border pick up the action color.</p>
+        </article>
+      </div>
+      <p class="usage-note"><strong>Usage:</strong> semantic element is &lt;article&gt; — each
+        card must be a complete, self-contained unit. Supports a .badge child
+        with data-status of "open", "limited", or "full"; status is always paired
+        with text, never color alone. Consumes --surface-card, --border-default,
+        --action tokens.</p>
+    </section>
+
+    <section aria-labelledby="field-title">
+      <h2 id="field-title" class="section-heading">6. Component: Form field</h2>
+      <div class="field">
+        <label for="s-default">Default</label>
+        <input id="s-default" type="text" placeholder="Type here">
+      </div>
+      <div class="field" data-state="success">
+        <label for="s-success">Success state</label>
+        <input id="s-success" type="text" value="valid@university.edu">
+        <span class="field__hint">Looks good.</span>
+      </div>
+      <div class="field" data-state="error">
+        <label for="s-error">Error state</label>
+        <input id="s-error" type="text">
+        <span class="field__hint">This field is required.</span>
+      </div>
+      <p class="usage-note"><strong>Usage:</strong> label's `for` must match input `id` —
+        this is what makes the label clickable and gives the input an accessible
+        name. Set data-state="success"/"error" on the .field wrapper to trigger
+        the paired border-color + message change.</p>
+    </section>
+
+    <section aria-labelledby="disclosure-title">
+      <h2 id="disclosure-title" class="section-heading">7. Component: Disclosure</h2>
+      <details class="faq-item">
+        <summary>Sample question</summary>
+        <p>Sample answer text revealed on open — uses the native &lt;details&gt;
+          element, so open/close behavior and keyboard support come free from
+          the browser.</p>
+      </details>
+      <p class="usage-note"><strong>Usage:</strong> native &lt;details&gt;/&lt;summary&gt;,
+        no JavaScript needed. Styling only changes appearance, not behavior.</p>
+    </section>
+
+  </main>
+
+  <script src="../styles/theme.js"></script>
+</body>
+</html>

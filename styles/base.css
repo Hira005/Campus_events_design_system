@@ -1,0 +1,37 @@
+/* ==========================================================================
+   base.css
+   Owns: default typography and document-wide look. No layout, no components —
+   just "what does plain text/elements look like by default."
+   ========================================================================== */
+
+@layer base {
+  body {
+    background: var(--surface-page);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    transition: background-color .2s ease, color .2s ease;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+  h3 { font-size: var(--text-lg); }
+
+  p {
+    color: var(--text-secondary);
+    max-width: 65ch; 
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+}
